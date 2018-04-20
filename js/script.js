@@ -32,11 +32,7 @@ window.addEventListener('DOMContentLoaded', function() {
       readyBtn         = document.getElementById('ready')
 
       // let arr = {
-      //   candidateName: [],
-      //   candidateAge: [],
-      //   candidateGender: [],
-      //   politicalSide: [],
-      //   candidateBio: []
+      //   candidateGender: []
       // };
       // console.log(arr);
 
@@ -125,23 +121,23 @@ window.addEventListener('DOMContentLoaded', function() {
         mainCards.append(clone);
         clone.style.display = "none";
    
-        let newName = document.querySelectorAll('.name')[2];
-        let newAge = document.querySelectorAll('.age')[2];
-        let newBio = document.querySelectorAll('.bio')[2];
+        let newName  = document.querySelectorAll('.name')[2];
+        let newAge   = document.querySelectorAll('.age')[2];
+        let newBio   = document.querySelectorAll('.bio')[2];
         let newViews = document.querySelectorAll('.views')[2];
 
 
-        let male = document.getElementById('male');
+        let male   = document.getElementById('male');
         let female = document.getElementById('female');
-        let sex = document.querySelectorAll('.sex')[2];
+        let sex    = document.querySelectorAll('.sex')[2];
 
     
 
 
       readyBtn.addEventListener('click', function() {
-        main.style.display = "block";
+        main.style.display   = "block";
         custom.style.display = "none";
-        clone.style.display = "block";
+        clone.style.display  = "block";
         // if (candidate_name.value =="") {
         //   alert("Введите пожалуйста ваши ФИО")
         // } else {
@@ -159,9 +155,37 @@ window.addEventListener('DOMContentLoaded', function() {
         //   clone.style.display = "block";
         // };
         newName.innerHTML = candidate_name.value;
-        newAge.innerHTML = candidate_age.value;
+        newAge.innerHTML  = candidate_age.value;
 
-        let personEasy = document.querySelector('.person-easy');
+        // let personEasy = document.querySelector('.person-easy');
+
+        // male.addEventListener('change', function() {
+        //   if (event.target.value === 'Мужской') {
+        //     personEasy.style.background = 'url(img/construct-5.png) center no-repeat';
+        //     personEasy.style.backgroundSize = 'cover';
+        //   }
+        // });
+        // female.addEventListener('change', function() {
+        //   if (event.target.value === 'Женский') {
+        //     personEasy.style.background = 'url(img/construct-1.png) center no-repeat';
+        //     personEasy.style.backgroundSize = 'cover';
+        //   }
+        // });
+        
+        // let radioBlock = document.querySelector('.radio');
+
+        // radioBlock.addEventListener('change', function() {
+        //   if (event.target.value === 'Женский') {
+        //     personEasy.style.backgroundImage = 'url(img/construct-5.png) center no-repeat';
+        //     personEasy.style.backgroundSize = 'cover';
+        //     check = 'false';
+        //   } else {
+        //     personEasy.style.backgroundImage = 'url(img/construct-1.png) center no-repeat';
+        //     personEasy.style.backgroundSize = 'cover';
+        //     check = 'true';
+        //   }
+        // });
+
 
         if (male.checked) {
           sex.innerHTML = 'Мужской';
@@ -170,9 +194,7 @@ window.addEventListener('DOMContentLoaded', function() {
         };
         
           newViews.innerHTML = political_side.value;
-        
-
-        newBio.innerHTML = candidate_bio.value;
+          newBio.innerHTML   = candidate_bio.value;
       });
 
 
@@ -181,12 +203,29 @@ window.addEventListener('DOMContentLoaded', function() {
       let reset = document.getElementById('reset');
 
       reset.addEventListener('click', function() {
-        main.style.display = "none";
+        main.style.display   = "none";
         custom.style.display = "flex";
-        clone.style.display = "block";
+        clone.style.display  = "block";
       });
 
+      // Меняем картинку в custom главную
 
+      let personEasy = document.querySelector('.person-easy');
+      let radioBlock = document.querySelector('.radio');
+
+      male.addEventListener('change', function() {
+        if (event.target.value === 'Мужской') {
+          personEasy.style.background = 'url(img/construct-5.png) center no-repeat';
+          personEasy.style.backgroundSize = '70%';
+        }
+      });
+      female.addEventListener('change', function() {
+        if (event.target.value === 'Женский') {
+          personEasy.style.background = 'url(img/construct-1.png) center no-repeat';
+          personEasy.style.backgroundSize = '70%';
+        }
+      });
+      
 
 
 });
