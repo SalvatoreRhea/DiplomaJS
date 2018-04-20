@@ -132,6 +132,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
         let male = document.getElementById('male');
+        let female = document.getElementById('female');
         let sex = document.querySelectorAll('.sex')[2];
 
     
@@ -159,15 +160,18 @@ window.addEventListener('DOMContentLoaded', function() {
         // };
         newName.innerHTML = candidate_name.value;
         newAge.innerHTML = candidate_age.value;
+
+        let personEasy = document.querySelector('.person-easy');
+
         if (male.checked) {
           sex.innerHTML = 'Мужской';
         } else {
           sex.innerHTML = 'Женский';
         };
-        let options = political_side.options;
-        for (let i = 0; i < options.length; i++) {
+        
           newViews.innerHTML = political_side.value;
-        };
+        
+
         newBio.innerHTML = candidate_bio.value;
       });
 
