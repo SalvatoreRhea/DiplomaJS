@@ -31,83 +31,7 @@ window.addEventListener('DOMContentLoaded', function() {
       candidate_bio    = document.getElementById('bio'),
       readyBtn         = document.getElementById('ready')
 
-      // let arr = {
-      //   candidateGender: []
-      // };
-      // console.log(arr);
 
-      
-
-      // Получаем имя в массив
-
-
-
-      // candidate_name.addEventListener('change', ()=> {
-      //   let name = candidate_name.value;
-      //   for (let i = 0; i < 1; i++) {
-      //     if (isNaN(name) && name !=="") {
-      //       console.log('Все круто! Все на месте!');
-      //       arr.candidateName[i] = name;
-      //       i++;
-      //     } else {
-      //       alert('Не, так не пойдет, еще раз!');
-      //     }
-      //   }
-      // });
-
-      // Получаем возраст в массив
-
-      // candidate_age.addEventListener('change', ()=> {
-      //   let age = candidate_age.value;
-      //   for (let i = 0; i < 1; i++) {
-      //     if (age.length < 4 && age !=="" && age !==" " && typeof(age.value) !=='string') {
-      //       console.log('Все круто! Все на месте!');
-      //       arr.candidateAge[i] = age;
-      //       i++;
-      //     } else {
-      //       alert('Не, так не пойдет, еще раз!');
-      //     }
-      //   }
-      // });
-
-      // checkbox 
-      
-
-
-
-      // let genderChange = function genderChange() {
-      //   let input = candidate_gender.getElementsByTagName('input');
-      //   for (let i = 0; i < input.length; i++) {
-      //     if (input[i].type == "radio" && input[i].checked) {
-      //       arr.candidateGender[i] = input;
-      //       i++;
-      //     }
-      //   }
-      // };
-      // genderChange();
-
-      // Получаем полит.взгляды
-
-      
-
-
-
-      // Получаем биографию
-
-      // candidate_bio.addEventListener('change', ()=> {
-      //   let bio = candidate_bio.value;
-      //   for (let i = 0; i < 1; i++) {
-      //     if (isNaN(bio) && bio !=="") {
-      //       console.log('Все круто! Все на месте!');
-      //       arr.candidateBio[i] = bio;
-      //       i++;
-      //     } else {
-      //       alert('Не, так не пойдет, еще раз!');
-      //     }
-      //   }
-      // });
-
-      // Новая карточка
 
         let mainCards = document.querySelector('.main-cards')
 
@@ -171,7 +95,7 @@ window.addEventListener('DOMContentLoaded', function() {
         //     personEasy.style.backgroundSize = 'cover';
         //   }
         // });
-        
+
         // let radioBlock = document.querySelector('.radio');
 
         // radioBlock.addEventListener('change', function() {
@@ -225,7 +149,50 @@ window.addEventListener('DOMContentLoaded', function() {
           personEasy.style.backgroundSize = '70%';
         }
       });
-      
 
+
+      //Slider
+      let preview          = document.querySelector('.preview'),
+          prev             = document.querySelector('.prev'),
+          next             = document.querySelector('.next'),
+          backgroundSlides = [
+              "url(img/construct-1.png)", 
+              "url(img/construct-2.png)",
+              "url(img/construct-3.png)",
+              "url(img/construct-4.png)",
+              "url(img/construct-5.png)",
+              "url(img/construct-6.png)",
+              "url(img/construct-7.png)",
+              "url(img/construct-8.png)",
+              ],
+              slideIndex = 1;
+
+      showSlides(slideIndex);
+
+      function showSlides(n) {
+      if (n > backgroundSlides.length) {
+        slideIndex = 1;
+      };
+      if (n < 1) {
+        slideIndex = backgroundSlides.length;
+      };
+
+      preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
+      personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
+      
+    }
+
+    function plusSlides (n) {
+      showSlides(slideIndex += n)
+    }
+
+    prev.addEventListener('click', function() {
+      plusSlides(-1);
+    });
+    next.addEventListener('click', function() {
+      plusSlides(1);
+    });
+
+      
 
 });
