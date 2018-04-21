@@ -79,6 +79,26 @@ window.addEventListener('DOMContentLoaded', function() {
             progressBar1_3[1].style.height = 0;
             progressBar2.style.height = 0;
 
+        // Распределение голосов
+        let voting = document.getElementById('voting');
+
+        voting.addEventListener('click', function() {
+          resultCount[0].innerHTML = 25 + '%';
+          resultCount[1].innerHTML = 49 + '%';
+          resultCount[2].innerHTML = 26 + '%';
+          progressBar1_3[0].style.height = 25 + '%';
+          progressBar1_3[1].style.height = 26 + '%';
+          progressBar2.style.height = 49 + '%';
+        });
+
+        // Вмешаться в выборы
+        let crime = document.getElementById('crime');
+
+        crime.addEventListener('click', function() {
+          resultCount[2].innerHTML = 51 + '%';
+          progressBar1_3[1].style.height = 51 + '%';
+        })
+
             
         // if (candidate_name.value =="") {
         //   alert("Введите пожалуйста ваши ФИО")
