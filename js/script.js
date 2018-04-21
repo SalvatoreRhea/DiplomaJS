@@ -55,6 +55,8 @@ window.addEventListener('DOMContentLoaded', function() {
         let female = document.getElementById('female');
         let sex    = document.querySelectorAll('.sex')[2];
 
+        let newPhoto = document.querySelectorAll('.photo')[2];
+
     
 
 
@@ -78,8 +80,10 @@ window.addEventListener('DOMContentLoaded', function() {
         //   custom.style.display = "none";
         //   clone.style.display = "block";
         // };
+
         newName.innerHTML = candidate_name.value;
         newAge.innerHTML  = candidate_age.value;
+        newPhoto.style.background = personEasy.style.background;
 
         // let personEasy = document.querySelector('.person-easy');
 
@@ -186,7 +190,46 @@ window.addEventListener('DOMContentLoaded', function() {
         if (event.target.value === 'Женский') {
           personEasy.style.background = 'url(img/construct-1.png) center no-repeat';
           personEasy.style.backgroundSize = '70%';
-          let preview          = document.querySelector('.preview'),
+          // let preview          = document.querySelector('.preview'),
+          //           prev             = document.querySelector('.prev'),
+          //           next             = document.querySelector('.next'),
+          //           backgroundSlides = [
+          //               "url(img/construct-1.png)", 
+          //               "url(img/construct-2.png)",
+          //               "url(img/construct-3.png)",
+          //               "url(img/construct-4.png)",
+          //               ],
+          //               slideIndex = 1;
+
+          //       showSlides(slideIndex);
+
+          //       function showSlides(n) {
+          //       if (n > backgroundSlides.length) {
+          //         slideIndex = 1;
+          //       };
+          //       if (n < 1) {
+          //         slideIndex = backgroundSlides.length;
+          //       };
+
+          //       preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
+          //       personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
+                
+          //     }
+
+          //     function plusSlides (n) {
+          //       showSlides(slideIndex += n)
+          //     }
+
+          //     prev.addEventListener('click', function() {
+          //       plusSlides(-1);
+          //     });
+          //     next.addEventListener('click', function() {
+          //       plusSlides(1);
+          //     });
+        }
+      });
+
+      let preview          = document.querySelector('.preview'),
                     prev             = document.querySelector('.prev'),
                     next             = document.querySelector('.next'),
                     backgroundSlides = [
@@ -222,8 +265,7 @@ window.addEventListener('DOMContentLoaded', function() {
               next.addEventListener('click', function() {
                 plusSlides(1);
               });
-        }
-      });
+              showSlides();
 
 
       //Slider
