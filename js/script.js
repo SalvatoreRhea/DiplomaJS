@@ -64,6 +64,22 @@ window.addEventListener('DOMContentLoaded', function() {
         main.style.display   = "block";
         custom.style.display = "none";
         clone.style.display  = "block";
+
+
+        // Переменные для обнуления
+        let resultCount    = document.querySelectorAll('.result-count'),
+            progressBar1_3 = document.querySelectorAll('.progress-bar-1'),
+            progressBar2   = document.querySelector('.progress-bar-2');
+
+        //Обнуление
+            resultCount[0].innerHTML = 0 + '%';
+            resultCount[1].innerHTML = 0 + '%';
+            resultCount[2].innerHTML = 0 + '%';
+            progressBar1_3[0].style.height = 0;
+            progressBar1_3[1].style.height = 0;
+            progressBar2.style.height = 0;
+
+            
         // if (candidate_name.value =="") {
         //   alert("Введите пожалуйста ваши ФИО")
         // } else {
@@ -83,6 +99,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         newName.innerHTML = candidate_name.value;
         newAge.innerHTML  = candidate_age.value;
+        // Добавляем картинку из custom в карточку
         newPhoto.style.background = personEasy.style.background;
 
         // let personEasy = document.querySelector('.person-easy');
@@ -114,7 +131,7 @@ window.addEventListener('DOMContentLoaded', function() {
         //   }
         // });
 
-
+        // Добавляем пол в карточку
         if (male.checked) {
           sex.innerHTML = 'Мужской';
         } else {
@@ -126,7 +143,7 @@ window.addEventListener('DOMContentLoaded', function() {
       });
 
 
-      // Сбросить результаты
+      // Сбросить результаты(возвразаемся в custom)
 
       let reset = document.getElementById('reset');
 
@@ -139,7 +156,6 @@ window.addEventListener('DOMContentLoaded', function() {
       // Меняем картинку в custom главную
 
       let personEasy = document.querySelector('.person-easy');
-      // let radioBlock = document.querySelector('.radio');
 
       male.addEventListener('change', function() {
         personEasy.style.background = 'url(img/construct-5.png) center no-repeat';
@@ -166,7 +182,7 @@ window.addEventListener('DOMContentLoaded', function() {
               slideIndex = backgroundSlides.length;
             };
 
-            preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
+            preview.style.backgroundImage    = backgroundSlides[slideIndex - 1],
             personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
             
           }
@@ -181,64 +197,75 @@ window.addEventListener('DOMContentLoaded', function() {
           next.addEventListener('click', function() {
             plusSlides(1);
           });
-          // personEasy.style.background = 'url(img/construct-5.png) center no-repeat';
-          // personEasy.style.backgroundSize = '70%';
         }
 
       });
       female.addEventListener('change', function() {
-        if (event.target.value === 'Женский') {
+        showSlides(slideIndex);
           personEasy.style.background = 'url(img/construct-1.png) center no-repeat';
           personEasy.style.backgroundSize = '70%';
-          // let preview          = document.querySelector('.preview'),
-          //           prev             = document.querySelector('.prev'),
-          //           next             = document.querySelector('.next'),
-          //           backgroundSlides = [
-          //               "url(img/construct-1.png)", 
-          //               "url(img/construct-2.png)",
-          //               "url(img/construct-3.png)",
-          //               "url(img/construct-4.png)",
-          //               ],
-          //               slideIndex = 1;
-
-          //       showSlides(slideIndex);
-
-          //       function showSlides(n) {
-          //       if (n > backgroundSlides.length) {
-          //         slideIndex = 1;
-          //       };
-          //       if (n < 1) {
-          //         slideIndex = backgroundSlides.length;
-          //       };
-
-          //       preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
-          //       personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
-                
-          //     }
-
-          //     function plusSlides (n) {
-          //       showSlides(slideIndex += n)
-          //     }
-
-          //     prev.addEventListener('click', function() {
-          //       plusSlides(-1);
-          //     });
-          //     next.addEventListener('click', function() {
-          //       plusSlides(1);
-          //     });
-        }
+          preview.style.backgroundImage = 'url(img/construct-1.png)';
+ 
+              prev.addEventListener('click', function() {
+                plusSlides(-1);
+              });
+              next.addEventListener('click', function() {
+                plusSlides(1);
+              });
       });
+      // female.addEventListener('change', function() {
+      //   if (event.target.value === 'Женский') {
+      //     personEasy.style.background = 'url(img/construct-1.png) center no-repeat';
+      //     personEasy.style.backgroundSize = '70%';
+      //     let preview          = document.querySelector('.preview'),
+      //               prev             = document.querySelector('.prev'),
+      //               next             = document.querySelector('.next'),
+      //               backgroundSlides = [
+      //                   "url(img/construct-1.png)", 
+      //                   "url(img/construct-2.png)",
+      //                   "url(img/construct-3.png)",
+      //                   "url(img/construct-4.png)",
+      //                   ],
+      //                   slideIndex = 1;
+
+      //           showSlides(slideIndex);
+
+      //           function showSlides(n) {
+      //           if (n > backgroundSlides.length) {
+      //             slideIndex = 1;
+      //           };
+      //           if (n < 1) {
+      //             slideIndex = backgroundSlides.length;
+      //           };
+
+      //           preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
+      //           personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
+                
+      //         }
+
+      //         function plusSlides (n) {
+      //           showSlides(slideIndex += n)
+      //         }
+
+      //         prev.addEventListener('click', function() {
+      //           plusSlides(-1);
+      //         });
+      //         next.addEventListener('click', function() {
+      //           plusSlides(1);
+      //         });
+      //   }
+      // });
 
       let preview          = document.querySelector('.preview'),
-                    prev             = document.querySelector('.prev'),
-                    next             = document.querySelector('.next'),
-                    backgroundSlides = [
-                        "url(img/construct-1.png)", 
-                        "url(img/construct-2.png)",
-                        "url(img/construct-3.png)",
-                        "url(img/construct-4.png)",
-                        ],
-                        slideIndex = 1;
+          prev             = document.querySelector('.prev'),
+          next             = document.querySelector('.next'),
+          backgroundSlides = [
+             "url(img/construct-1.png)", 
+             "url(img/construct-2.png)",
+             "url(img/construct-3.png)",
+             "url(img/construct-4.png)",
+               ],
+               slideIndex = 1;
 
                 showSlides(slideIndex);
 
@@ -250,7 +277,7 @@ window.addEventListener('DOMContentLoaded', function() {
                   slideIndex = backgroundSlides.length;
                 };
 
-                preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
+                preview.style.backgroundImage    = backgroundSlides[slideIndex - 1],
                 personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
                 
               }
@@ -265,6 +292,7 @@ window.addEventListener('DOMContentLoaded', function() {
               next.addEventListener('click', function() {
                 plusSlides(1);
               });
+              // Вызываем функцию сразу
               showSlides();
 
 
