@@ -135,63 +135,138 @@ window.addEventListener('DOMContentLoaded', function() {
       // Меняем картинку в custom главную
 
       let personEasy = document.querySelector('.person-easy');
-      let radioBlock = document.querySelector('.radio');
+      // let radioBlock = document.querySelector('.radio');
 
       male.addEventListener('change', function() {
+        personEasy.style.background = 'url(img/construct-5.png) center no-repeat';
+        personEasy.style.backgroundSize = '70%';
         if (event.target.value === 'Мужской') {
-          personEasy.style.background = 'url(img/construct-5.png) center no-repeat';
-          personEasy.style.backgroundSize = '70%';
+            let preview          = document.querySelector('.preview'),
+                prev             = document.querySelector('.prev'),
+                next             = document.querySelector('.next'),
+                backgroundSlides = [
+                    "url(img/construct-5.png)",
+                    "url(img/construct-6.png)",
+                    "url(img/construct-7.png)",
+                    "url(img/construct-8.png)",
+                    ],
+                    slideIndex = 1;
+
+            showSlides(slideIndex);
+
+            function showSlides(n) {
+            if (n > backgroundSlides.length) {
+              slideIndex = 1;
+            };
+            if (n < 1) {
+              slideIndex = backgroundSlides.length;
+            };
+
+            preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
+            personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
+            
+          }
+
+          function plusSlides (n) {
+            showSlides(slideIndex += n)
+          }
+
+          prev.addEventListener('click', function() {
+            plusSlides(-1);
+          });
+          next.addEventListener('click', function() {
+            plusSlides(1);
+          });
+          // personEasy.style.background = 'url(img/construct-5.png) center no-repeat';
+          // personEasy.style.backgroundSize = '70%';
         }
+
       });
       female.addEventListener('change', function() {
         if (event.target.value === 'Женский') {
           personEasy.style.background = 'url(img/construct-1.png) center no-repeat';
           personEasy.style.backgroundSize = '70%';
+          let preview          = document.querySelector('.preview'),
+                    prev             = document.querySelector('.prev'),
+                    next             = document.querySelector('.next'),
+                    backgroundSlides = [
+                        "url(img/construct-1.png)", 
+                        "url(img/construct-2.png)",
+                        "url(img/construct-3.png)",
+                        "url(img/construct-4.png)",
+                        ],
+                        slideIndex = 1;
+
+                showSlides(slideIndex);
+
+                function showSlides(n) {
+                if (n > backgroundSlides.length) {
+                  slideIndex = 1;
+                };
+                if (n < 1) {
+                  slideIndex = backgroundSlides.length;
+                };
+
+                preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
+                personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
+                
+              }
+
+              function plusSlides (n) {
+                showSlides(slideIndex += n)
+              }
+
+              prev.addEventListener('click', function() {
+                plusSlides(-1);
+              });
+              next.addEventListener('click', function() {
+                plusSlides(1);
+              });
         }
       });
 
 
       //Slider
-      let preview          = document.querySelector('.preview'),
-          prev             = document.querySelector('.prev'),
-          next             = document.querySelector('.next'),
-          backgroundSlides = [
-              "url(img/construct-1.png)", 
-              "url(img/construct-2.png)",
-              "url(img/construct-3.png)",
-              "url(img/construct-4.png)",
-              "url(img/construct-5.png)",
-              "url(img/construct-6.png)",
-              "url(img/construct-7.png)",
-              "url(img/construct-8.png)",
-              ],
-              slideIndex = 1;
+    //   let preview          = document.querySelector('.preview'),
+    //       prev             = document.querySelector('.prev'),
+    //       next             = document.querySelector('.next'),
+    //       backgroundSlides = [
+    //           "url(img/construct-1.png)", 
+    //           "url(img/construct-2.png)",
+    //           "url(img/construct-3.png)",
+    //           "url(img/construct-4.png)",
+    //           "url(img/construct-5.png)",
+    //           "url(img/construct-6.png)",
+    //           "url(img/construct-7.png)",
+    //           "url(img/construct-8.png)",
+    //           ],
+    //           slideIndex = 1;
 
-      showSlides(slideIndex);
+    //   showSlides(slideIndex);
 
-      function showSlides(n) {
-      if (n > backgroundSlides.length) {
-        slideIndex = 1;
-      };
-      if (n < 1) {
-        slideIndex = backgroundSlides.length;
-      };
+    //   function showSlides(n) {
+    //   if (n > backgroundSlides.length) {
+    //     slideIndex = 1;
+    //   };
+    //   if (n < 1) {
+    //     slideIndex = backgroundSlides.length;
+    //   };
 
-      preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
-      personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
+    //   preview.style.backgroundImage = backgroundSlides[slideIndex - 1],
+    //   personEasy.style.backgroundImage = backgroundSlides[slideIndex - 1]
       
-    }
+    // }
 
-    function plusSlides (n) {
-      showSlides(slideIndex += n)
-    }
+    // function plusSlides (n) {
+    //   showSlides(slideIndex += n)
+    // }
 
-    prev.addEventListener('click', function() {
-      plusSlides(-1);
-    });
-    next.addEventListener('click', function() {
-      plusSlides(1);
-    });
+    // prev.addEventListener('click', function() {
+    //   plusSlides(-1);
+    // });
+    // next.addEventListener('click', function() {
+    //   plusSlides(1);
+    // });
 
       
 
