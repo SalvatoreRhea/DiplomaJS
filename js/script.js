@@ -65,9 +65,29 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
       readyBtn.addEventListener('click', function() {
-        main.style.display   = "block";
-        custom.style.display = "none";
-        clone.style.display  = "block";
+        // main.style.display   = "block";
+        // custom.style.display = "none";
+        // clone.style.display  = "block";
+      
+
+        if(candidate_name.value == "" || candidate_name.value == " "){
+                    fail = 'Введите имя'
+                    } else if (candidate_age.value == "" || candidate_age.value == " "){
+                        fail = 'Введите возрост'
+                        } else if (candidate_bio.value == "" || candidate_bio.value == " "){
+                            fail = 'напишите о себе'
+                            } else {
+                                main.style.display = 'block';
+                                custom.style.display = 'none';
+                                clone.style.display  = "block";
+                                
+                            }
+                // if(fail) {
+                //     alert(fail)
+                // }
+
+
+        
 
         //Обнуление
             resultCount[0].innerHTML = 0 + '%';
@@ -98,6 +118,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
             // Добавляем картинку из custom в карточку
             newPhoto.style.backgroundImage = personEasy.style.backgroundImage;
+            newPhoto.style.backgroundSize = "75%";
           
       });
 
