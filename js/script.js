@@ -63,6 +63,20 @@ window.addEventListener('DOMContentLoaded', function() {
             progressBar1_3 = document.querySelectorAll('.progress-bar-1'),
             progressBar2   = document.querySelector('.progress-bar-2');
 
+                                  candidate_name.addEventListener('keypress', function() {
+        setTimeout(() => {
+            var res = /[^а-яА-Я -]/g.exec(this.value);
+            this.value = this.value.replace(res, '');
+        }, 0);
+    });
+
+    //                               candidate_age.addEventListener('keypress', function() {
+    //     setTimeout(() => {
+    //         var res = /[^0-9]/g.exec(this.value);
+    //         this.value = this.value.replace(res, '');
+    //     }, 0);
+    // });
+
 
       readyBtn.addEventListener('click', function() {
         // main.style.display   = "block";
@@ -72,7 +86,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
         if(candidate_name.value == "" || candidate_name.value == " "){
                     fail = 'Введите имя'
-                    } else if (candidate_age.value == "" || candidate_age.value == " "){
+                    } else if (candidate_age.value == "" || candidate_age.value == " " || candidate_age.length < 7){
                         fail = 'Введите возрост'
                         } else if (candidate_bio.value == "" || candidate_bio.value == " "){
                             fail = 'напишите о себе'
@@ -82,6 +96,7 @@ window.addEventListener('DOMContentLoaded', function() {
                                 clone.style.display  = "block";
                                 
                             }
+
                 // if(fail) {
                 //     alert(fail)
                 // }
