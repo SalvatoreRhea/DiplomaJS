@@ -116,6 +116,7 @@ window.addEventListener('DOMContentLoaded', function() {
             // Добавляем биографию в карточку
             newBio.innerHTML   = candidate_bio.value;
             newBio.style.overflowWrap = "break-word";
+            newBio.style.wordwWrap = "break-word";
 
             // Добавляем картинку из custom в карточку
             newPhoto.style.backgroundImage = personEasy.style.backgroundImage;
