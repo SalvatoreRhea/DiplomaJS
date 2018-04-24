@@ -70,12 +70,12 @@ window.addEventListener('DOMContentLoaded', function() {
         }, 0);
     });
 
-    //                               candidate_age.addEventListener('keypress', function() {
-    //     setTimeout(() => {
-    //         var res = /[^0-9]/g.exec(this.value);
-    //         this.value = this.value.replace(res, '');
-    //     }, 0);
-    // });
+                                  candidate_age.addEventListener('keypress', function() {
+        setTimeout(() => {
+            var res = /[^0-9]/g.exec(this.value);
+            this.value = this.value.replace(res, '');
+        }, 0);
+    });
 
 
       readyBtn.addEventListener('click', function() {
@@ -85,12 +85,18 @@ window.addEventListener('DOMContentLoaded', function() {
       
 
         if(candidate_name.value == "" || candidate_name.value == " "){
-                    fail = 'Введите имя'
-                    } else if (candidate_age.value.length > 7 || candidate_age.value == "" || candidate_age.value == " "){
-                        alert = 'Введите возрост'
+                    alert('Введите имя')
+                    } else if (candidate_age.value == "" || candidate_age.value == " "){
+                        alert('Введите возрост')
                         } else if (candidate_bio.value == "" || candidate_bio.value == " "){
-                            fail = 'напишите о себе'
-                            } else {
+                            alert('Напишите о себе')
+                            } else if(candidate_age.value <= 35 || candidate_age.value >= 80) {
+                              alert('Вы должны быть старше 35, но не старше 80 лет, чтоб принимать участие в выборах')
+                            } else
+
+
+
+                             {
                                 main.style.display = 'block';
                                 custom.style.display = 'none';
                                 clone.style.display  = "block";
