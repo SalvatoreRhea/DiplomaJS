@@ -86,8 +86,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
         if(candidate_name.value == "" || candidate_name.value == " "){
                     fail = 'Введите имя'
-                    } else if (candidate_age.value == "" || candidate_age.value == " " || candidate_age.length < 7){
-                        fail = 'Введите возрост'
+                    } else if (candidate_age.value.length > 7 || candidate_age.value == "" || candidate_age.value == " "){
+                        alert = 'Введите возрост'
                         } else if (candidate_bio.value == "" || candidate_bio.value == " "){
                             fail = 'напишите о себе'
                             } else {
