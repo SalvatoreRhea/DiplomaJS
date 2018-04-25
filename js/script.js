@@ -285,6 +285,8 @@ window.addEventListener('DOMContentLoaded', function() {
         let crime = document.getElementById('crime');
 
         crime.addEventListener('click', function() {
+          resultCount[0].innerHTML = 25 + '%';
+          progressBar1_3[0].style.height = 25 + '%';
           resultCount[2].innerHTML = 51 + '%';
           progressBar1_3[1].style.height = 51 + '%';
           resultCount[1].innerHTML = 24 + '%';
