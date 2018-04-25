@@ -137,7 +137,7 @@ window.addEventListener('DOMContentLoaded', function() {
             // Добавляем биографию в карточку
             newBio.innerHTML   = candidate_bio.value;
             newBio.style.overflowWrap = "break-word";
-            newBio.style.wordwWrap = "break-word";
+            newBio.style.wordWrap = "break-word";
 
             // Добавляем картинку из custom в карточку
             newPhoto.style.backgroundImage = personEasy.style.backgroundImage;
@@ -156,8 +156,8 @@ window.addEventListener('DOMContentLoaded', function() {
         clone.style.display  = "block";
         candidate_name.value = "";
         candidate_age.value = "";
-        candidate_gender.value = "";
-        political_side.value = "";
+        female.checked = "Женский";
+        political_side.value = "Либеральные";
         candidate_bio.value = "";
         personEasy.style.background = "";
         preview.style.backgroundImage = "";
