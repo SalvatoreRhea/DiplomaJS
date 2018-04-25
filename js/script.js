@@ -84,12 +84,12 @@ window.addEventListener('DOMContentLoaded', function() {
         // clone.style.display  = "block";
       
 
-        if(candidate_name.value == "" || candidate_name.value == " "){
-                    alert('Введите имя')
+        if(candidate_name.value == "" || candidate_name.value == " " || candidate_name.value.length < 3){
+                    alert('Введите имя, не менее 3х символов')
                     } else if (candidate_age.value == "" || candidate_age.value == " "){
                         alert('Введите возрост')
-                        } else if (candidate_bio.value == "" || candidate_bio.value == " "){
-                            alert('Напишите о себе')
+                        } else if (candidate_bio.value == "" || candidate_bio.value == " " || candidate_bio.value.length < 30){
+                            alert('Напишите о себе, не менее 30ти символов')
                             } else if(candidate_age.value <= 35 || candidate_age.value >= 80) {
                               alert('Вы должны быть старше 35, но не старше 80 лет, чтоб принимать участие в выборах')
                             } else
@@ -154,6 +154,13 @@ window.addEventListener('DOMContentLoaded', function() {
         main.style.display   = "none";
         custom.style.display = "flex";
         clone.style.display  = "block";
+        candidate_name.value = "";
+        candidate_age.value = "";
+        candidate_gender.value = "";
+        political_side.value = "";
+        candidate_bio.value = "";
+        personEasy.style.background = "";
+        preview.style.backgroundImage = "";
       });
 
       // Меняем картинку в custom главную
